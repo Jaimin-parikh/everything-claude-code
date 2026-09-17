@@ -116,6 +116,6 @@ it('marks an order as paid', function () {
 ## Security Checklist
 
 - Mass assignment: `$fillable` set on every model, never `$guarded = []` in production code.
-- Authorization: every controller action checks a Policy or Gate, not just a middleware group.
+- Authorization: every protected endpoint enforces a Policy or Gate through a Form Request, controller, or authorization middleware. Authentication middleware alone is not authorization.
 - Raw queries: parameterize with bindings, never string-interpolate user input into `DB::raw()` or `whereRaw()`.
 - Secrets: config values pulled from `.env` via `config()`, never `env()` outside config files.
